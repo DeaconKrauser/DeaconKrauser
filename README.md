@@ -1,9 +1,8 @@
-<p align="center" style="border-radius:100%"><img height="auto" width="10%"  src="/assets/perfil-trybe-1.png" ></p>
-
 <div>
   <p align="center">Opa, Tudo bem ? 😎</p>
   <p align="center">Eu sou o <a href="https://github.com/DeaconKrauser"><i>Otávio Willker</i></a>, desenvolvedor full-stack e apaixonado por tecnologia!🐱‍👤🐱‍🐉</p>
 </div>
+
 
 
 <!-- <h1 align="center"> 
@@ -13,7 +12,7 @@
 <p align="center"><i>"A Trybe é uma escola do futuro para qualquer pessoa que deseja construir uma carreira de sucesso em tecnologia. Como estudante a pessoa ainda tem a opção de pagar os estudos apenas quando estiver formada e com um bom trabalho."</i></p> -->
 
 <div align="center">
-  <a href="https://github.com/duribeiro">
+  <a href="https://github.com/DeaconKrauser">
     <img height="150em" src="https://github-readme-stats.vercel.app/api?username=duribeiro&count_private=true&include_all_commits=true&show_icons=true&theme=dracula&hide_border=false&show_owner=true"/>
     <img height="150em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=duribeiro&theme=dracula&hide_border=false&&layout=compact"/>
   </a>
