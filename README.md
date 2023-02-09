@@ -1,5 +1,4 @@
 <div>
-  <p align="center">Opa, Tudo bem ? 😎</p>
   <p align="center">Eu sou o <a href="https://github.com/DeaconKrauser"><i>Otávio Willker</i></a>, desenvolvedor full-stack e apaixonado por tecnologia!🐱‍👤🐱‍🐉</p>
 </div>
 
