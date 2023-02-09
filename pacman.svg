@@ -1,41 +1,97 @@
-<svg width="400" height="400">
-  <rect x="0" y="0" width="400" height="400" fill="#000000"/>
-  <rect x="50" y="50" width="100" height="100" fill="#000000"/>
-  <rect x="200" y="50" width="100" height="100" fill="#000000"/>
-  <circle id="dot1" cx="100" cy="100" r="10" fill="#FFFFFF"/>
-  <circle id="dot2" cx="250" cy="100" r="10" fill="#FFFFFF"/>
-  <path id="pacman" d="M 40 40 A 20 20 0 0 0 60 60 L 70 70 A 10 10 0 0 1 50 50 Z" fill="#FFFF00"/>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="pacman" viewBox="0 0 600 300">
+    <!-- In order to externalize, we have to put all the necessary styling inline here. -->
+    <style>
+        .wall {
+            fill: blue;
+        }
+
+        .ghost {
+            fill: red;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-name: ghost-motion;
+        }
+
+        @keyframes ghost-motion {
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+
+        .pacman-dot {
+            fill: white;
+        }
+
+        .pacman-open, .pacman-mouth-top, .pacman-mouth-bottom {
+            fill: gold;
+        }
+        .pacman-mouth-top, .pacman-mouth-bottom {
+            animation-duration: 175ms;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            transform-origin: calc(300px/2) 150px; // center of circle
+        }
+        .pacman-mouth-top {
+            animation-name: rotate-counterclockwise;
+        }
+        .pacman-mouth-bottom {
+          animation-name: rotate-clockwise;
+        }
+
+        @keyframes rotate-counterclockwise {
+           100% { transform: rotate(-30deg); }
+        }
+        @keyframes rotate-clockwise {
+            100% { transform: rotate(30deg); }
+        }
+
+        .pacman-dot {
+            animation-name: dot-motion;
+            animation-duration: 600ms;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes dot-motion {
+            100% {
+                transform: translateX(-100px); // distance between dots
+            }
+        }
+
+    </style>
+    <!-- Draw the walls of the maze -->
+    <rect class="wall" x="100" y="50" width="20" height="200" />
+    <rect class="wall" x="150" y="100" width="20" height="100" />
+    <rect class="wall" x="200" y="50" width="20" height="200" />
+
+    <!-- Draw the dots in the maze -->
+    <circle class="pacman-dot" cx="250" cy="50%" r="10" />
+    <circle class="pacman-dot" cx="350" cy="50%" r="10" />
+    <circle class="pacman-dot" cx="450" cy="50%" r="10" />
+    <circle class="pacman-dot" cx="550" cy="50%" r="10" />
+    <circle class="pacman-dot" cx="650" cy="50%" r="10" />
+
+    <!-- Draw the Pacman character -->
+    <!-- Create an arc covering 45°, so there's a little overlap with an animation of 30° -->
+    <path class="pacman-mouth-bottom" d="
+    M 150,150
+    L 220.4,221.0
+    A 100 100 0 0 0 250,150
+    Z"/>
+    <path class="pacman-mouth-top" d="
+    M 150,150 
+    L 220.4,79.0
+    A 100 100 0 0 1 250,150
+    Z"/>
+    <path class="pacman-open" d="
+    M 150,150
+    L 236.6,100
+    A 100 100 0 1 0 236.6,200
+    Z"/>
 </svg>
 
-<style>
-  @keyframes pacman-open {
-    0% {
-      d: path("M 40 40 A 20 20 0 0 0 60 60 L 70 70 A 10 10 0 0 1 50 50 Z");
-    }
-    50% {
-      d: path("M 40 40 A 20 20 0 1 0 60 60 L 70 70 A 10 10 0 1 1 50 50 Z");
-    }
-    100% {
-      d: path("M 40 40 A 20 20 0 0 0 60 60 L 70 70 A 10 10 0 0 1 50 50 Z");
-    }
-  }
-</style>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
-<script>
-  var pacman = Snap("#pacman");
-  var dot1 = Snap("#dot1");
-  var dot2 = Snap("#dot2");
-
-  pacman.attr({
-    fill: "#FFFF00"
-  });
-  
-  pacman.animate({d: "M 100 100 A 20 20 0 1 0 120 120 L 130 130 A 10 10 0 1 1 110 110 Z"}, 1000, function() {
-    pacman.animate({d: "M 250 100 A 20 20 0 1 0 270 120 L 280 130 A 10 10 0 1 1 260 110 Z"}, 1000);
-  });
-  
-  pacman.style({
-    animation: "pacman-open 1s linear infinite"
-  });
-</script>
