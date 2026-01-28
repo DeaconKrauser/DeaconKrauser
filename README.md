@@ -40,6 +40,6 @@
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/DeaconKrauser/SEU_REPO/main/assets/pacman.svg" />
+  <img src="https://raw.githubusercontent.com/DeaconKrauser/DeaconKrauser/main/assets/pacman.svg" />
 </div>
 
